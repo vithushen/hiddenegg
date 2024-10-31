@@ -2,10 +2,10 @@ import React from 'react';
 
 function Navbar() {
     return (
-        <div className="navbar bg-base-100 font-BlackOps">
+        <div className="navbar bg-black text-white font-BlackOps">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -23,7 +23,7 @@ function Navbar() {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                        className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow"
                     >
                         <li><a className="text-lg">Home</a></li>
                         <li>
@@ -40,21 +40,21 @@ function Navbar() {
                     </ul>
                 </div>
 
-                <a className="btn btn-ghost text-2xl tracking-wide">
+                <a className="btn btn-ghost text-2xl tracking-wide text-white">
                     Hidden
                     <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
                         Eggs
                     </span>
                 </a>
-
             </div>
+
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><a className="text-lg">Home</a></li>
                     <li>
                         <details>
                             <summary className="text-lg">Easter Egg</summary>
-                            <ul className="p-2">
+                            <ul className="p-2 text-white bg-black">
                                 <li><a className="text-base">Liberty Falls</a></li>
                                 <li><a className="text-base">Terminus</a></li>
                             </ul>
@@ -64,9 +64,10 @@ function Navbar() {
                     <li><a className="text-lg">Contact</a></li>
                 </ul>
             </div>
+
             <div className="navbar-end">
-                {/* Donate Button Style */}
-                <a className="bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md shadow-lg hover:from-purple-600 hover:to-blue-600 transition duration-300 text-lg mr-2 lg:text-xl lg:py-3 lg:px-6">
+                {/* Donate Button Style with Black Shadow */}
+                <a className="bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:from-purple-600 hover:to-blue-600 transition duration-300 text-lg mr-2 lg:text-xl lg:py-3 lg:px-6 shadow-black">
                     Donate
                 </a>
             </div>
