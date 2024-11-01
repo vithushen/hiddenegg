@@ -1,16 +1,15 @@
 import React from 'react';
-import Terminus from '../images/terminus.png'; // Adjust the path as necessary
-import LibertyFalls from '../images/liberty.png'; // Adjust the path as necessary
-
+import Terminus from '../images/terminus.png'; 
+import LibertyFalls from '../images/liberty.png'; 
 
 const images = [
   {
     src: Terminus,
-    link: 'https://youtube.com', // Link for the image
+    link: '/terminus',
   },
   {
     src: LibertyFalls,
-    link: 'https://youtube.com', // Link for the image
+    link: '/liberty-falls', 
   },
   // Add more images with links as needed
 ];
@@ -29,19 +28,17 @@ function LandingPage2() {
 
       <div className="flex flex-col mt-12 w-full max-w-4xl px-4">
         <label className="text-white text-3xl mb-2">Choose Map:</label>
-        <div className="flex flex-wrap mt-5 justify-center"> {/* Added justify-center to center the images */}
+        <div className="flex flex-wrap mt-5 justify-center"> 
           {images.map((image, index) => (
             <a
-              key={index} // Use index as a key (or use a unique identifier if available)
+              key={index}
               href={image.link}
-              target="_blank" // Opens link in a new tab
-              rel="noopener noreferrer" // Security measure
-              className="w-full sm:w-1/2 lg:w-1/2 p-2" // Change lg:w-1/3 to lg:w-1/2 for two columns
+              className="w-full sm:w-1/2 lg:w-1/2 p-2"
             >
               <img
                 src={image.src}
                 alt={`Zombies ${index + 1}`}
-                className="w-full h-auto lg:h-64 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                className="w-full h-auto lg:h-64 rounded-lg shadow-2xl transition-transform transform hover:scale-105 hover:shadow-[0_10px_20px_rgba(0,0,0,0.4)]"
               />
             </a>
           ))}
