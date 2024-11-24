@@ -1,12 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import ContactPopUp from './ContactPopUp';
+import Donate from './Donate';
 
 function Navbar() {
     const openContactModal = () => {
         document.getElementById('my_modal_3').showModal();
     };
 
+    const openDonateModal = () => {
+        document.getElementById('my_modal_1').showModal();
+    };
     return (
         <div className="navbar bg-black text-white font-BlackOps">
             <div className="navbar-start">
@@ -126,12 +130,14 @@ function Navbar() {
             </div>
 
             <div className="navbar-end cursor-pointer">
-                <a className="bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:from-purple-600 hover:to-blue-600 transition duration-300 text-lg mr-2 lg:text-xl lg:py-3 lg:px-6 shadow-black">
+                <a onClick={openDonateModal} className="bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:from-purple-600 hover:to-blue-600 transition duration-300 text-lg mr-2 lg:text-xl lg:py-3 lg:px-6 shadow-black">
                     Donate
                 </a>
             </div>
             {/* Include the ContactPopUp component */}
             <ContactPopUp />
+            <Donate />
+
         </div>
     );
 }
