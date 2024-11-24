@@ -3,13 +3,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import terminusImage from '../images/terminus.png';
 import MainEasterEggSteps from '../data/TerminusMainEE';
+import TerminusSideEE from '../data/TerminusSideEE';  // Import TerminusSideEE data
 
 function TerminusMap() {
     const [showMainEasterEgg, setShowMainEasterEgg] = useState(false);
     const [showSideEasterEgg, setShowSideEasterEgg] = useState(false);
-    const [showSubStepOne, setShowSubStepOne] = useState(false);
-    const [showSubStepTwo, setShowSubStepTwo] = useState(false);
     const [activeSteps, setActiveSteps] = useState([]);
+    const [openSubStepIndex, setOpenSubStepIndex] = useState(null); // Add this line
 
     // Toggle active state of each step
     const toggleStep = (index) => {
@@ -118,7 +118,6 @@ function TerminusMap() {
                     </div>
                 )}
 
-
                 {/* Side Easter Egg Dropdown */}
                 <div
                     className="bg-black text-white p-6 rounded-lg cursor-pointer flex justify-between items-center"
@@ -132,51 +131,54 @@ function TerminusMap() {
                         {showSideEasterEgg ? '▲' : '▼'}
                     </span>
                 </div>
+
                 {showSideEasterEgg && (
-                    <div className="bg-gray-900 text-white p-6 rounded-lg space-y-4">
-                        {/* Sub-step 2.1 */}
-                        <div
-                            className="bg-black text-white p-4 rounded-lg cursor-pointer flex justify-between items-center"
-                            onClick={() => setShowSubStepOne(!showSubStepOne)}
-                        >
-                            <h3 className="text-xl flex items-center space-x-2">
-                                <span>2.1</span>
-                                <span>Locate the Secret Room</span>
-                            </h3>
-                            <span className="text-2xl">
-                                {showSubStepOne ? '▲' : '▼'}
-                            </span>
-                        </div>
-                        {showSubStepOne && (
-                            <div className="bg-gray-800 text-white p-4 rounded-lg space-y-2 ml-6">
-                                <p className="hover:text-gray-400">Step A: Find the hidden door</p>
-                                <p className="hover:text-gray-400">Step B: Solve the room puzzle</p>
-                            </div>
-                        )}
+                    <div className="bg-black text-white p-6 rounded-lg space-y-4">
+                        {TerminusSideEE.map((step, index) => (
+                            <div key={index} className="p-4 bg-gray-800 rounded-lg">
+                                {/* Title Dropdown for Each Sub-Step */}
+                                <div
+                                    className="cursor-pointer flex justify-between items-center"
+                                    onClick={() => setOpenSubStepIndex(openSubStepIndex === index ? null : index)}
+                                >
+                                    <h3 className="font-bold text-xl">{step.title}</h3>
+                                    <span className="text-2xl">
+                                        {openSubStepIndex === index ? '▲' : '▼'}
+                                    </span>
+                                </div>
 
-                        {/* Sub-step 2.2 */}
-                        <div
-                            className="bg-black text-white p-4 rounded-lg cursor-pointer flex justify-between items-center"
-                            onClick={() => setShowSubStepTwo(!showSubStepTwo)}
-                        >
-                            <h3 className="text-xl flex items-center space-x-2">
-                                <span>2.2</span>
-                                <span>Find the Hidden Item</span>
-                            </h3>
-                            <span className="text-2xl">
-                                {showSubStepTwo ? '▲' : '▼'}
-                            </span>
-                        </div>
-                        {showSubStepTwo && (
-                            <div className="bg-gray-800 text-white p-4 rounded-lg space-y-2 ml-6">
-                                <p className="hover:text-gray-400">Step A: Search the island</p>
-                                <p className="hover:text-gray-400">Step B: Unlock the chest</p>
-                            </div>
-                        )}
+                                {/* Content shown only if openSubStepIndex matches the current index */}
+                                {openSubStepIndex === index && (
+                                    <div className="mt-4">
+                                        {step.description.split('\n').map((line, i) => (
+                                            <p key={i} className="text-gray-300">
+                                                {line}
+                                            </p>
+                                        ))}
+                                        <div className="flex flex-wrap justify-center mt-4 space-x-4">
+                                            {step.image.map((img, imgIndex) => (
+                                                <div key={imgIndex} className="flex flex-col items-center">
+                                                    <img
+                                                        src={img.src}
+                                                        alt={img.location}
+                                                        className="w-full sm:w-64 h-auto mx-auto mb-2"
+                                                    />
+                                                    <p className="text-white text-center text-lg">
+                                                        {img.location}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
 
-                        {/* Additional sub-steps can be added here following the same pattern */}
+                            </div>
+                        ))}
                     </div>
                 )}
+
+
+
             </div>
 
             <Footer />

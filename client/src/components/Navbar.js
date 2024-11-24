@@ -68,16 +68,6 @@ function Navbar() {
                                 </ul>
                             </details>
                         </li>
-                        <li>
-                            <NavLink
-                                to="/about"
-                                className={({ isActive }) =>
-                                    `text-lg ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text' : ''}`
-                                }
-                            >
-                                About Us
-                            </NavLink>
-                        </li>
                         <li><a onClick={openContactModal} className="text-lg cursor-pointer">Contact</a></li>
 
                     </ul>
@@ -129,16 +119,6 @@ function Navbar() {
                                 </li>
                             </ul>
                         </details>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/about"
-                            className={({ isActive }) =>
-                                `text-lg ${isActive ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text' : ''}`
-                            }
-                        >
-                            About Us
-                        </NavLink>
                     </li>
                     <li><a onClick={openContactModal} className="text-lg cursor-pointer">Contact</a></li>
 

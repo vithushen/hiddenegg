@@ -50,9 +50,7 @@ function LibertyFallsMap() {
                 </div>
                 {showMainEasterEgg && (
                     <div className="bg-gray-900 text-white p-6 rounded-lg space-y-4">
-                        <p className="hover:text-gray-400">Step 1: Find the Key</p>
-                        <p className="hover:text-gray-400">Step 2: Activate the Generator</p>
-                        <p className="hover:text-gray-400">Step 3: Solve the Puzzle</p>
+                        <p className="hover:text-gray-400">Coming Soon!</p>
                     </div>
                 )}
 
@@ -78,8 +76,7 @@ function LibertyFallsMap() {
                             onClick={() => setShowSubStepOne(!showSubStepOne)}
                         >
                             <h3 className="text-xl flex items-center space-x-2">
-                                <span>2.1</span>
-                                <span>Locate the Secret Room</span>
+                                <span>Coming soon!</span>
                             </h3>
                             <span className="text-2xl">
                                 {showSubStepOne ? '▲' : '▼'}
@@ -87,32 +84,11 @@ function LibertyFallsMap() {
                         </div>
                         {showSubStepOne && (
                             <div className="bg-gray-800 text-white p-4 rounded-lg space-y-2 ml-6">
-                                <p className="hover:text-gray-400">Step A: Find the hidden door</p>
-                                <p className="hover:text-gray-400">Step B: Solve the room puzzle</p>
+                                <p className="hover:text-gray-400">Coming Soon!</p>
                             </div>
                         )}
 
-                        {/* Sub-step 2.2 */}
-                        <div
-                            className="bg-black text-white p-4 rounded-lg cursor-pointer flex justify-between items-center"
-                            onClick={() => setShowSubStepTwo(!showSubStepTwo)}
-                        >
-                            <h3 className="text-xl flex items-center space-x-2">
-                                <span>2.2</span>
-                                <span>Find the Hidden Item</span>
-                            </h3>
-                            <span className="text-2xl">
-                                {showSubStepTwo ? '▲' : '▼'}
-                            </span>
-                        </div>
-                        {showSubStepTwo && (
-                            <div className="bg-gray-800 text-white p-4 rounded-lg space-y-2 ml-6">
-                                <p className="hover:text-gray-400">Step A: Search the island</p>
-                                <p className="hover:text-gray-400">Step B: Unlock the chest</p>
-                            </div>
-                        )}
-
-                        {/* Additional sub-steps can be added here following the same pattern */}
+    
                     </div>
                 )}
             </div>
